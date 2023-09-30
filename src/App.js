@@ -4,9 +4,11 @@ import Filter from './components/Filter';
 import { filterData,apiUrl } from './data';
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
+import Spinner from './components/Spinner';
 
 function App() {
   const [data,setData] = useState([]);
+  const [loader,setLoader]=useState(true);
   async function fetchData()
   {
     try {
@@ -16,6 +18,8 @@ function App() {
       // Save data
       setData(output.data);
       // setCourses(output);
+    setLoader(false);
+
     } catch (err) {
       toast.error("Something Went Wrong");
     }
@@ -34,9 +38,10 @@ function App() {
       
 
     </div>
-    <div>
-     
-      <Cards courses={data}></Cards>
+    <div className='flex w-[100%] justify-center h-[100%]  min-h-[100vh] mx-auto flex-wrap items-center'>
+    {
+      loader?<Spinner></Spinner>:<Cards courses={data}></Cards>
+    }
     </div>
     </div>
   );
