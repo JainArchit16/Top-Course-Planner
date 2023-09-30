@@ -9,6 +9,8 @@ import Spinner from './components/Spinner';
 function App() {
   const [data,setData] = useState([]);
   const [loader,setLoader]=useState(true);
+  // console.log(filterData[0].title);
+  const [category,setCategory]=useState(filterData[0].title);
   async function fetchData()
   {
     try {
@@ -34,13 +36,16 @@ function App() {
         <Navbar></Navbar>
     </div>
     <div>
-      <Filter  filterData={filterData}></Filter>
+      <Filter  filterData={filterData}
+                category={category}
+                setCategory={setCategory}
+      ></Filter>
       
 
     </div>
     <div className='flex w-[100%] justify-center h-[100%]  min-h-[100vh] mx-auto flex-wrap items-center'>
     {
-      loader?<Spinner></Spinner>:<Cards courses={data}></Cards>
+      loader?<Spinner></Spinner>:<Cards courses={data} category={category}></Cards>
     }
     </div>
     </div>

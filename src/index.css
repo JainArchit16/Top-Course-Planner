@@ -46,3 +46,10 @@
     0% , 60% , 100%{ transform:  scale(1) }
     80% { transform:  scale(1.2)}
   }
+
+  .border-white
+  {
+    border-color: white;
+    border: 2px;
+    border-style: solid;
+  }

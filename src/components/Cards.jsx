@@ -5,11 +5,19 @@ const Cards = (props) => {
     let array=[];
     function getCourses()
     {
-        Object.values(courseData).forEach(element => {
-          element.forEach(value =>{
-            array.push(value);
-          })
-        });
+        if(props.category==="All")
+        {
+          
+            Object.values(courseData).forEach(element => {
+              element.forEach(value =>{
+                array.push(value);
+              })
+            });
+        }
+        else 
+        {
+            return courseData[props.category];
+        }
         return array;
     }
 

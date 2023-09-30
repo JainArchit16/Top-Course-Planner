@@ -27,7 +27,7 @@ const Card = (props) => {
             <div className='rounded-full w-[40px] h-[40px] bg-white absolute right-2 bottom-[0px] grid place-items-center absolute'>
               <span onClick={handleLike}>
                   {
-                    like.includes(course.id)?<FcLike></FcLike>:<FcLikePlaceholder></FcLikePlaceholder>
+                    like.includes(course.id)?<FcLike fontSize="1.75rem"></FcLike>:<FcLikePlaceholder fontSize="1.75rem"></FcLikePlaceholder>
                   }
               </span>
             </div>
